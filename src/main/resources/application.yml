@@ -1,0 +1,12 @@
+logging:
+  path: ./log
+  level:
+    root: INFO
+    cn.ghy.mappers: TRACE
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ef
+    name: ef
+    username: ef
+    password: Ef2017)^)^
