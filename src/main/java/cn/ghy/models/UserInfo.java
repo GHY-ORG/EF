@@ -1,13 +1,10 @@
 package cn.ghy.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.util.Collection;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class UserInfo implements Serializable {
 
@@ -19,7 +16,7 @@ public class UserInfo implements Serializable {
 
     protected Integer gender;
     protected String email;
-    protected String studentNumber; //optional
+    protected String studentNumber; // optional
     protected String mobile;
     protected String location;
     protected String nickname;
@@ -28,7 +25,6 @@ public class UserInfo implements Serializable {
 
     protected Date lastModified;
     protected UserStatus status;
-
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -50,6 +46,7 @@ public class UserInfo implements Serializable {
         this.username = username;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }

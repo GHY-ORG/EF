@@ -1,11 +1,12 @@
 package cn.ghy.models;
 
+import java.io.Serializable;
+
 import org.springframework.security.core.GrantedAuthority;
 
-import java.io.Serializable;
-import java.math.BigInteger;
-
 public class Authority implements GrantedAuthority, Serializable {
+
+    private static final long serialVersionUID = 2615595929933525275L;
 
     private Integer id;
     private String authorityName;
@@ -18,7 +19,6 @@ public class Authority implements GrantedAuthority, Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-
 
     public String getAuthorityName() {
         return authorityName;

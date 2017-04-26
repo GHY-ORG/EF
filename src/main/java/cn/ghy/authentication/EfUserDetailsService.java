@@ -1,19 +1,17 @@
 package cn.ghy.authentication;
 
-import cn.ghy.mappers.AuthorityMapper;
-import cn.ghy.mappers.UserInfoMapper;
-import cn.ghy.models.Authority;
-import cn.ghy.models.UserInfo;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import java.util.List;
+import cn.ghy.mappers.AuthorityMapper;
+import cn.ghy.mappers.UserInfoMapper;
+import cn.ghy.models.Authority;
+import cn.ghy.models.UserInfo;
 
 @Service
 public class EfUserDetailsService implements UserDetailsService {

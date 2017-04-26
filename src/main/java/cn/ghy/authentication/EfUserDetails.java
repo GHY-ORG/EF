@@ -1,16 +1,18 @@
 package cn.ghy.authentication;
 
-import cn.ghy.models.Authority;
-import cn.ghy.models.UserInfo;
-import cn.ghy.models.UserStatus;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import cn.ghy.models.Authority;
+import cn.ghy.models.UserInfo;
+import cn.ghy.models.UserStatus;
+
 public class EfUserDetails implements UserDetails {
+
+    private static final long serialVersionUID = 6433405227094094332L;
 
     private UserInfo userInfo;
     private List<Authority> authorities;

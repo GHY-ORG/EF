@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.math.BigInteger;
 
 public class UserGroup implements Serializable {
+
+    private static final long serialVersionUID = -2537444079225516540L;
     private BigInteger id;
     private String groupName;
 

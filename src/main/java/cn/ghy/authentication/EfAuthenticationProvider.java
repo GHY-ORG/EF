@@ -1,19 +1,28 @@
 package cn.ghy.authentication;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
-
-import java.util.Collection;
 
 @Component
 public class EfAuthenticationProvider implements AuthenticationProvider {
 
+    @Bean
+    private final BCryptPasswordEncoder getPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
     private EfUserDetailsService userService;
@@ -23,12 +32,11 @@ public class EfAuthenticationProvider implements AuthenticationProvider {
         String username = authentication.getName();
         String password = (String) authentication.getCredentials();
         EfUserDetails user = (EfUserDetails) userService.loadUserByUsername(username);
-        if(user == null){
+        if (user == null) {
             throw new BadCredentialsException("Username not found.");
         }
 
-        //加密过程在这里体现
-        if (!password.equals(user.getPassword())) {
+        if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new BadCredentialsException("Bad password.");
         }
 
